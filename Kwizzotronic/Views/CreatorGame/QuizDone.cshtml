@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+    string first = (ViewBag.First ?? " ") as string;
+    string second = (ViewBag.Second ?? " ") as string;
+    string third = (ViewBag.Third ?? " ") as string;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QuizDone</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/Application.css" rel="stylesheet" />
+    <link href="~/Content/MyQuizzes.css" rel="stylesheet" />
+    <link href="~/Content/QuizDetails.css" rel="stylesheet" />
+    <link href="~/Content/QuizDone.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+
+    </div>
+    <div class="main-container">
+        @using (Html.BeginForm())
+
+        {
+            <input type="submit" name="done" value='@Resources.Web_sitemap.done' class="backButton" style="font-weight: bold; top: 0px;"
+                   formaction="FinishQuiz" formmethod="get" />
+        }
+        <div class="standings-container">
+            <div class="single-standing-container">
+                <div class="name">@second</div>
+                <div class="box-second"></div>
+            </div>
+            <div class="single-standing-container">
+                <div class="name">@first</div>
+                <div class="box-first"></div>
+            </div>
+            <div class="single-standing-container">
+                <div class="name">@third</div>
+                <div class="box-third"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Auth.css" rel="stylesheet" />
+    <link href="~/Content/Application.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="mainHeader">
+        Kwizzotronic
+        <button class="backButton" onclick="history.go(-1); return false;">Natrag</button>
+    </div>
+
+    <div class="indexContainer">
+
+        <div class="inputsNoMargin">
+            <div class="labelDiv">@Resources.Web_sitemap.doYouHaveAcc</div>
+            @Html.ActionLink(
+                   @Resources.Web_sitemap.login,
+                   controllerName: "Auth",
+                   actionName: "Login",
+                   routeValues: null,
+                   htmlAttributes: new { @class = "lightgrayButton" }
+             )
+            <div class="labelDiv">@Resources.Web_sitemap.youDontHaveAcc</div>
+            @Html.ActionLink(
+                   @Resources.Web_sitemap.createAccount,
+                   controllerName: "Auth",
+                   actionName: "CreateAccount",
+                   routeValues: null,
+                   htmlAttributes: new { @class = "lightgrayButton" }
+                 )
+        </div>
+
+    </div>
+</body>
+</html>

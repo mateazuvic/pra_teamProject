@@ -1,0 +1,70 @@
+﻿@using Kwizzotronic.Models
+@{ Layout = null;
+                Creator creator = ViewBag.creator as Creator; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Application.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/SelectLanguage.css" rel="stylesheet" />
+    <link href="~/Content/Creator.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+        <button class="backButton" onclick="history.go(-1); return false;">@Resources.Web_sitemap.back</button>
+    </div>
+
+    <div class="creatorTitle">
+        <h1>WIZZ @creator.FirstName @creator.LastName</h1>
+    </div>
+
+    <div class="options">
+        <div class="option-item">
+            @Html.ActionLink(
+                     @Resources.Web_sitemap.editProfile,
+                     controllerName: "User",
+                     actionName: "EditProfile"
+                 )
+        </div>
+        <div class="option-item">
+            @Html.ActionLink(
+                     @Resources.Web_sitemap.signOut,
+                     controllerName: "User",
+                     actionName: "SignOut"
+                 )
+        </div>
+    </div>
+
+    <div class="mainContainer">
+        <div class="subContainer">
+            <div class="emptyDiv"></div>
+            <div class="emptyDiv"></div>
+            <div class="bigButtonContainer">
+                @Html.ActionLink(
+                       @Resources.Web_sitemap.myQuizzes,
+                       controllerName: "User",
+                       actionName: "MyQuizes"
+                     )
+            </div>
+        </div>
+        <div class="subContainer">
+            <div class="emptyDiv"></div>
+
+            <div class="bigButtonContainer">
+                @Html.ActionLink(
+                       @Resources.Web_sitemap.createNewQuiz,
+                       controllerName: "QuizDetails",
+                       actionName: "Index"
+                     )
+            </div>
+        </div>
+    </div>
+</body>
+</html>

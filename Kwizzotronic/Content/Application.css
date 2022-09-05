@@ -1,0 +1,54 @@
+﻿body {
+    min-height: 100vh;
+    padding: 0;
+}
+
+.mainHeader {
+    height: 70px;
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    align-content: center;
+    padding-left: 20px;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px
+}
+
+.backButton {
+    background-color: lightgray;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+    float: right;
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+}
+
+.mainHeader a:link, .mainHeader a:visited {
+    background-color: lightgray;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+    float: right;
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.mainHeader a:nth-child(1) {
+    right: 140px;
+}

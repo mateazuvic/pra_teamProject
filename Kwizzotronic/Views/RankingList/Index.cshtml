@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Kwizzotronic.Models.QuizInstance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="mainHeader">
+    Kwizzotronic
+    <button class="backButton" onclick="history.go(-1); return false;">@Resources.Web_sitemap.back</button>
+</div>
+
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr class="table-row">
+            <td class="table-cell-group">
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td class="table-cell-group">
+                @Html.ActionLink(@Resources.Web_sitemap.rankList, "GetRankingList", new { instanceId = item.IDQuizInstance }, new { @class = "btn btn-dark btn-cell" })
+            </td>
+        </tr>
+    }
+
+</table>

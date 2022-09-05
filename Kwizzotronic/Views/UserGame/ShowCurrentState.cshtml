@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+    string points = (ViewBag.Points ?? " ") as string;
+    string message = (ViewBag.StatusMessage ?? " ") as string;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowCurrentState</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/Application.css" rel="stylesheet" />
+    <link href="~/Content/MyQuizzes.css" rel="stylesheet" />
+    <link href="~/Content/QuizDetails.css" rel="stylesheet" />
+    <link href="~/Content/PlayQuiz.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+
+    </div>
+
+    <div class="main-container">
+
+        <div class="message-container">@message</div>
+        <div class="points-continer">
+            <div class="points-label">@Resources.Web_sitemap.points</div>
+            <div class="points-number">@points</div>
+        </div>
+
+    </div>
+</body>
+</html>

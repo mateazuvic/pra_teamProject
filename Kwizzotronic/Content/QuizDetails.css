@@ -1,0 +1,90 @@
+﻿.main-container {
+    margin-top: 70px;
+    height: 100%;
+    width: 100%;
+    padding: 0 10%;
+}
+
+.title {
+    border: none;
+    margin: unset;
+    width: 100%;
+    max-width: unset;
+    outline: none;
+}
+
+.questionBox {
+    background-color: lightgray;
+    border-radius: 10px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    padding: 10px;
+    max-width: unset;
+    resize: none;
+}
+
+.titleBox {
+    padding: 10px;
+    font-size: 30px;
+    width: 100%;
+}
+
+.questionContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdownBox {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.answerGrid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 10px;
+}
+
+.answer {
+    background-color: black;
+    border-radius: 10px;
+    color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    padding: 10px;
+    max-width: unset;
+    resize: none;
+    /* padding: 10px; */
+    margin: 5px;
+    height: 90px;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnQuestions {
+    background-color: lightgray;
+    color: black;
+    outline: none;
+    border-radius: 10px;
+    margin: 5px;
+    height: 50px;
+    border: none;
+    width: 200px;
+}

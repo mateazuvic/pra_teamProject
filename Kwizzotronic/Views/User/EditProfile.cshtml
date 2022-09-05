@@ -1,0 +1,58 @@
+﻿@using Kwizzotronic.Models
+@{ Layout = null;
+    Creator creator = ViewBag.creator as Creator; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditProfile</title>
+    <link href="~/Content/Application.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Auth.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+        <button class="backButton" onclick="history.go(-1); return false;">@Resources.Web_sitemap.back</button>
+    </div>
+    <div class="mainContentAuth">
+        <div class="mainContentHeader">
+            @Resources.Web_sitemap.editYourProfile
+        </div>
+        <div class="inputs">
+            @using (Html.BeginForm(
+                actionName: "EditProfile",
+                controllerName: "User",
+                method: FormMethod.Post,
+                htmlAttributes: new { @class = "inputs" }))
+            {
+                @Html.TextBox("FirstName", value: @creator.FirstName, htmlAttributes: new { @class = "form-control greyInput", placeholder = @Resources.Web_sitemap.editName })
+                @Html.TextBox("LastName", value: @creator.LastName, htmlAttributes: new { @class = "form-control greyInput", placeholder = @Resources.Web_sitemap.editLastName })
+                <input type="submit" value=@Resources.Web_sitemap.save class="createButton" />}
+        </div>
+
+    </div>
+    <div class="mainContentAuth">
+        <div class="mainContentHeader">
+            @Resources.Web_sitemap.changePassword
+        </div>
+        <div class="inputs">
+            @using (Html.BeginForm(
+                actionName: "EditPassword",
+                controllerName: "User",
+                method: FormMethod.Post,
+                htmlAttributes: new { @class = "inputs" }))
+            {
+                @Html.Password("OldPassword", value: "", htmlAttributes: new { @class = "form-control greyInput", placeholder = @Resources.Web_sitemap.oldPassword })
+                @Html.Password("NewPassword", value: "", htmlAttributes: new { @class = "form-control greyInput", placeholder = @Resources.Web_sitemap.newPassword })
+                @Html.Password("ConfirmNewPassword", value: "", htmlAttributes: new { @class = "form-control greyInput", placeholder = @Resources.Web_sitemap.confirmNewPassword })
+                <input type="submit" value=@Resources.Web_sitemap.save class="createButton" />}
+        </div>
+        <div class="errorView">@Html.Partial("ErrorView")</div>
+    </div>
+</body>
+</html>

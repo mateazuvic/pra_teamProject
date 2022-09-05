@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Kwizzotronic.Models.RankListEntry>
+
+@{
+    ViewBag.Title = "GetRankingList";
+}
+
+<div class="mainHeader">
+    Kwizzotronic
+    <button class="backButton" onclick="history.go(-1); return false;">@Resources.Web_sitemap.back</button>
+</div>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr class="table-row">
+            <td class="table-cell-group">
+                @Html.DisplayFor(modelItem => item.Nickname)
+            </td>
+            <td class="table-cell-group">
+                @Html.DisplayFor(modelItem => item.Points, new { @class = "btn btn-dark btn-cell" })
+            </td>
+
+        </tr>
+    }
+
+</table>

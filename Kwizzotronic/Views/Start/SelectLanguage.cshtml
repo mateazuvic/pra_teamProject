@@ -1,0 +1,45 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SelectLanguage</title>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/SelectLanguage.css" rel="stylesheet" />
+    <link href="~/Content/Application.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+    </div>
+    <div class="mainContainer">
+        <div class="subContainer">
+            <div class="emptyDiv"></div>
+            <div class="emptyDiv"></div>
+            <div class="bigButtonContainer">
+                @Html.ActionLink(
+                      "English",
+                      controllerName: "Start",
+                      actionName: "SelectEnglish"
+                    )
+            </div>
+        </div>
+        <div class="subContainer">
+            <div class="emptyDiv"></div>
+
+            <div class="bigButtonContainer">
+                @Html.ActionLink(
+                       "Hrvatski",
+                       controllerName: "Start",
+                       actionName: "SelectCroatian"
+                     )
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

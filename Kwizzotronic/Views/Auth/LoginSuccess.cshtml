@@ -1,0 +1,22 @@
+﻿@using Kwizzotronic.Models
+@{ Layout = null;
+                Creator creator = ViewBag.creator as Creator; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginSuccess</title>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Application.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div>
+        <h1 class="infoMessage">Korisnik @creator.FirstName @creator.LastName usjpesno ulogiran</h1>
+    </div>
+</body>
+</html>

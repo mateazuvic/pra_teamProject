@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StartGame</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/Application.css" rel="stylesheet" />
+    <link href="~/Content/MyQuizzes.css" rel="stylesheet" />
+    <link href="~/Content/QuizDetails.css" rel="stylesheet" />
+    <link href="~/Content/PlayQuiz.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            function loadPartialView() {
+                $.ajax({
+                    url: '@Url.Action("CheckState", "UserGame")',
+                    cache: false,
+                    async: true,
+                    dataType: "html",
+                    success: function (result) {
+                        $('#game').html(result);
+                    }
+                });
+            };
+
+            function RefreshPartial() {
+                setTimeout(function () {
+                    loadPartialView();
+                    RefreshPartial();
+                }, 1000);
+            }
+
+            RefreshPartial();
+        });
+    </script>
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+        @Html.ActionLink(Resources.Web_sitemap.abort, "Abort", new { @class = "backButton" })
+    </div>
+    <div class="main-container">
+        <div id="game">@Html.Partial("GameView")</div>
+    </div>
+</body>
+</html>

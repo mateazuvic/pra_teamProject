@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+    string questionNumber = ViewBag.QuestionNumber as string;
+    string question = ViewBag.Question as string;
+    string correctAnswer = ViewBag.CorrectAnswer;
+    string time = ViewBag.Time as string;
+    string className = ViewBag.Class as string;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowCorrectAnswer</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/Application.css" rel="stylesheet" />
+    <link href="~/Content/MyQuizzes.css" rel="stylesheet" />
+    <link href="~/Content/QuizDetails.css" rel="stylesheet" />
+    <link href="~/Content/PlayQuiz.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+        @Html.ActionLink(Resources.Web_sitemap.abort, "Abort", new { @class = "backButton" })
+    </div>
+    <div class="main-container">
+        <div class="question-number">@questionNumber.</div>
+        <div class="question-time">
+            <div class="question">@question</div>
+            <div class="time">0</div>
+        </div>
+        <div class="correct-answer">
+            <div class="singele-anser">
+                <div class=@className></div>
+                <span>@correctAnswer</span>
+            </div>
+        </div>
+
+        <div>
+            @using (Html.BeginForm())
+
+            {
+                <input type="submit" name="next" value='@Resources.Web_sitemap.next' class="backButton" style="font-weight: bold; top: 0px;"
+                       formaction="NextQuestion" formmethod="get" />
+            }
+        </div>
+
+
+    </div>
+</body>
+</html>

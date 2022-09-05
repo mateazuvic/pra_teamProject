@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+    string questionNumber = ViewBag.QuestionNumber as string;
+    string question = ViewBag.Question as string;
+    string answer1 = ViewBag.Answer1 as string;
+    string answer2 = ViewBag.Answer2 as string;
+    string answer3 = ViewBag.Answer3 as string;
+    string answer4 = ViewBag.Answer4 as string;
+    string time = ViewBag.Time as string;
+}
+<link href="~/Content/PlayQuiz.css" rel="stylesheet" />
+<div class="question-number">@questionNumber.</div>
+<div class="question-time">
+    <div class="question">@question</div>
+    <div class="time">@time</div>
+</div>
+
+<div class="answers-grid">
+    <div class="singele-anser">
+        <div class="image-circle"></div>
+        <span>@answer1</span>
+    </div>
+    <div class="singele-anser">
+        <div class="image-square"></div>
+        <span>@answer2</span>
+    </div>
+    <div class="singele-anser">
+        <div class="image-triangle"></div>
+        <span>@answer3</span>
+    </div>
+    <div class="singele-anser">
+        <div class="image-trapezoid"></div>
+        <span>@answer4</span>
+    </div>
+</div>

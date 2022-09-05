@@ -1,0 +1,50 @@
+﻿.creatorTitle {
+    position: absolute;
+    top: 90px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.options {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    height: 90px;
+}
+
+.option-item {
+    background-color: gray;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid darkgray;
+    cursor: pointer;
+}
+
+    .option-item a {
+        background-color: gray;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid darkgray;
+        cursor: pointer;
+        font-size: unset !important;
+        color: unset !important;
+    }
+
+    .option-item:hover {
+        background-color: darkgray;
+        font-size: unset !important;
+        color: unset !important;
+    }

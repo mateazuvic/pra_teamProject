@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+    string code = ViewBag.Code as string;
+    string numOfPlayers = ViewBag.NumberOfPlayers as string;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/Application.css" rel="stylesheet" />
+    <link href="~/Content/QuizDetails.css" rel="stylesheet" />
+    <link href="~/Content/CreatorGame.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            function loadPartialView() {
+
+                $.ajax({
+                    url: '@Url.Action("UpdateNumberOfPlayers", "CreatorGame")',
+                    cache: false,
+                    async: true,
+                    dataType: "html",
+                    success: function(result){
+                        $('#numOfPlayers').html(result);
+                    }
+                });
+            };
+
+            function RefreshPartial() {
+
+                setTimeout(function () {
+                    loadPartialView();
+                    RefreshPartial();
+                }, 2000);
+            }
+
+            RefreshPartial();
+        });
+    </script>
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+        @Html.ActionLink(Resources.Web_sitemap.abort, "Abort", new { @class = "backButton" })
+    </div>
+
+    <div class="main-container">
+        <div class="content-container">
+            <div class="quiz-code-title-container">
+                <div class="quiz-code-title">Quiz access code:</div>
+            </div>
+            <div class="quiz-code-container">
+                <div class="code">@code</div>
+                <div id="numOfPlayers">@Html.Partial("NumberOfPlayersView")</div>
+            </div>
+            <div class="start-button-container">
+                @Html.ActionLink(Resources.Web_sitemap.start, "PlayQuiz", new { @class = "start-button" })
+            </div>
+        </div>
+    </div>
+</body>
+</html>

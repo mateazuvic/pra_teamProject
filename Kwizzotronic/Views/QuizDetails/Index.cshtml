@@ -1,0 +1,91 @@
+﻿
+@using Kwizzotronic.Models
+@{
+    Layout = null;
+    Question question = ViewBag.Question as Question;
+    String title = ViewBag.QuizTitle as String;
+    String currentQuestion = ViewBag.CurrentQuestion as String;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/Application.css" rel="stylesheet" />
+    <link href="~/Content/MyQuizzes.css" rel="stylesheet" />
+    <link href="~/Content/QuizDetails.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+        @Html.ActionLink(Resources.Web_sitemap.abort, "Abort", new { @class = "backButton" })
+    </div>
+
+    <div class="main-container">
+
+        @using (Html.BeginForm(new { currentQuestion = @ViewBag.Question }))
+
+        {
+            <div class="titleBox">
+                @Html.TextBox("quizTitle", value: @title, htmlAttributes: new { @class = "title", placeholder = Resources.Web_sitemap.enterQuizName })
+            </div>
+
+            <div class="questionContainer">
+                <div class="dropdownBox">
+                    @Html.DropDownList("time", new List<SelectListItem>
+
+                     {
+                        new SelectListItem{ Text=Resources.Web_sitemap.time, Value = "0" },
+                        new SelectListItem{ Text="20 s", Value = "20" , Selected=@question.Time.ToString() == "20"},
+                        new SelectListItem{ Text="40 s", Value = "40" , Selected=@question.Time.ToString() == "40"},
+                        new SelectListItem{ Text="60 s", Value = "60" , Selected=@question.Time.ToString() == "60"}
+                     })
+
+                    @Html.DropDownList("correctAnswer", new List<SelectListItem>
+
+                         {
+                            new SelectListItem{ Text=Resources.Web_sitemap.correctAnswer, Value = "0" },
+                            new SelectListItem{ Text="1", Value = "1"  , Selected=@question.CorrectAnswer.ToString() == "1"},
+                            new SelectListItem{ Text="2", Value = "2"  , Selected=@question.CorrectAnswer.ToString() == "2"},
+                            new SelectListItem{ Text="3", Value = "3"  , Selected=@question.CorrectAnswer.ToString() == "3"},
+                            new SelectListItem{ Text="4", Value = "4"  , Selected=@question.CorrectAnswer.ToString() == "4"}
+                         })
+                </div>
+
+                <div class="questionBoxContainer">
+                    <h3>@currentQuestion. @Resources.Web_sitemap.question</h3>
+                    @Html.TextArea("questionText", value: @question.Text, htmlAttributes: new { @class = "questionBox", placeholder = Resources.Web_sitemap.enterQuestion, rows = 5, cols = 70 })
+                </div>
+            </div>
+
+            <div class="answerGrid">
+                @Html.TextBox("answer1", value: @question.Answer1, htmlAttributes: new { @class = "answer", placeholder = Resources.Web_sitemap.AddAnswer1 })
+                @Html.TextBox("answer2", value: @question.Answer2, htmlAttributes: new { @class = "answer", placeholder = Resources.Web_sitemap.AddAnswer2 })
+                @Html.TextBox("answer3", value: @question.Answer3, htmlAttributes: new { @class = "answer", placeholder = Resources.Web_sitemap.AddAnswer3 })
+                @Html.TextBox("answer4", value: @question.Answer4, htmlAttributes: new { @class = "answer", placeholder = Resources.Web_sitemap.AddAnswer4 })
+            </div>
+
+            @Html.EditorForModel()
+            <br />
+
+            <div class="buttonsContainer">
+                <input type="submit" name="previous" value='@Resources.Web_sitemap.previousQuestion' class="btnQuestions"
+                       formaction="PreviousQuestion" formmethod="post" />
+                <input type="submit" name="next" value='@Resources.Web_sitemap.nextQuestion' class="btnQuestions"
+                       formaction="NextQuestion" formmethod="post" />
+            </div>
+
+            <input type="submit" name="save" value='@Resources.Web_sitemap.save' class="backButton" style="font-weight: bold; top: 0px;"
+                   formaction="SaveQuestion" formmethod="post" />
+        }
+
+    </div>
+</body>
+</html>

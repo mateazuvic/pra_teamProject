@@ -1,0 +1,43 @@
+﻿
+
+@{
+    Layout = null;
+    string questionNumber = ViewBag.QuestionNumber as string;
+    string answer1 = ViewBag.Answer1 ?? " " as string;
+    string answer2 = ViewBag.Answer2 ?? " " as string;
+    string answer3 = ViewBag.Answer3 ?? " " as string;
+    string answer4 = ViewBag.Answer4 ?? " " as string;
+}
+<link href="~/Content/PlayQuiz.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/modernizr-2.8.3.js"></script>
+<link href="~/Content/Application.css" rel="stylesheet" />
+<link href="~/Content/MyQuizzes.css" rel="stylesheet" />
+<link href="~/Content/QuizDetails.css" rel="stylesheet" />
+<link href="~/Content/PlayQuiz.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<div class="question-number">@questionNumber.</div>
+
+<div class="answers-grid">
+    <div class="singele-anser">
+        <div class="image-circle"></div>
+        @Html.ActionLink(@answer1, "Answer1", null, htmlAttributes: new { @class = ".answerButton" })
+        
+    </div>
+    <div class="singele-anser">
+        <div class="image-square"></div>
+        @Html.ActionLink(@answer2, "Answer2", null, htmlAttributes: new { @class = ".answerButton" })
+    </div>
+    <div class="singele-anser">
+        <div class="image-triangle"></div>
+        @Html.ActionLink(@answer3, "Answer3", null, htmlAttributes: new { @class = ".answerButton" })
+    </div>
+    <div class="singele-anser">
+        <div class="image-trapezoid"></div>
+        @Html.ActionLink(@answer4, "Answer4", null, htmlAttributes: new { @class = ".answerButton" })
+        
+    </div>
+</div>

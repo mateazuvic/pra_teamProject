@@ -1,0 +1,40 @@
+﻿body {
+}
+
+.standings-container {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.single-standing-container {
+    height: 230px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+}
+
+.box-first, .box-second, .box-third {
+    background-color: lightgray;
+    height: 100%;
+}
+
+.box-first {
+    height: 180px;
+}
+
+.box-second {
+    height: 120px;
+}
+
+.box-third {
+    height: 60px;
+}

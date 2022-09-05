@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Auth.css" rel="stylesheet" />
+    <link href="~/Content/Application.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="mainHeader">
+        Kwizzotronic
+        <button class="backButton" onclick="history.go(-1); return false;">Natrag</button>
+    </div>
+    <div class="mainContentAuth">
+        <div class="mainContentHeader">
+            @Resources.Web_sitemap.letsPlay
+        </div>
+        <div class="inputs">
+            @using (Html.BeginForm(
+                actionName: "Start",
+                controllerName: "UserGame",
+                method: FormMethod.Post,
+                htmlAttributes: new { @class = "inputs" }))
+            {
+                @Html.TextBox("Nickname", value: "", htmlAttributes: new { @class = "form-control greyInput", placeholder = @Resources.Web_sitemap.enterNickname })
+                @Html.TextBox("Code", value: "", htmlAttributes: new { @class = "form-control greyInput", placeholder = @Resources.Web_sitemap.enterAccessCode })
+                <input type="submit" value=@Resources.Web_sitemap.start class="createButton" />}
+        </div>
+        <div class="errorView">@Html.Partial("ErrorView")</div>
+    </div>
+</body>
+</html>
